@@ -1,20 +1,47 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StatusBar } from "expo-status-bar";
+import { ScrollView, StyleSheet, Text, View, Image } from "react-native";
+import Constants from "expo-constants";
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+    <ScrollView
+      style={styles.scrollView}
+      contentContainerStyle={styles.container}
+    >
+      <Image
+        source={require("./assets/logo-IMDB.png")}
+        style={styles.logoStyle}
+      />
+      <View style={styles.header}></View>
+      <View style={styles.cards}>
+        <Text>Interstellar</Text>
+      </View>
       <StatusBar style="auto" />
-    </View>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+  scrollView: {
+    marginTop: Constants.statusBarHeight,
+    backgroundColor: "pink",
+  },
+  // container: {
+  //   backgroundColor: "red",
+  // },
+  // img: { width: "100%", height: 200, resizeMode: "contain" },
+  cards: { backgroundColor: "" },
+  logoStyle: {
+    width: 50,
+    resizeMode: "contain",
+  },
+  header: {
+    height: 50,
+    width: "100%",
+    backgroundColor: "green",
+  },
+  title: {
+    color: "white",
+    fontSize: "48px",
   },
 });
